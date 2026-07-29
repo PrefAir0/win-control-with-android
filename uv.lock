@@ -1,0 +1,31 @@
+version = 1
+revision = 3
+requires-python = ">=3.13"
+
+[manifest]
+members = [
+    "client",
+    "server",
+    "win-controller",
+]
+
+[[package]]
+name = "client"
+version = "0.1.0"
+source = { virtual = "client" }
+
+[[package]]
+name = "server"
+version = "0.1.0"
+source = { editable = "server" }
+
+[[package]]
+name = "win-controller"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "server" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "server", editable = "server" }]
